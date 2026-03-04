@@ -1,0 +1,92 @@
+[
+  {
+      "id": 1001,
+      "title": "Login authentication failure",
+      "description": "Customer is unable to log into the portal despite entering correct credentials. Error message indicates invalid session token.",
+      "priority": "High",
+      "date": "2026-03-01",
+      "creator": "John Doe",
+      "status": "open"
+    },
+    {
+      "id": 1002,
+      "title": "Payment gateway timeout",
+      "description": "Transaction attempts are timing out during checkout, preventing successful payment completion.",
+      "priority": "High",
+      "date": "2026-03-01",
+      "creator": "Jane Smith",
+      "status": "open"
+    },
+    {
+      "id": 1003,
+      "title": "Profile update not saving",
+      "description": "User changes to account profile settings are not persisting after clicking the save button.",
+      "priority": "Medium",
+      "date": "2026-03-02",
+      "creator": "Alice Johnson",
+      "status": "open"
+    },
+    {
+      "id": 1004,
+      "title": "Email notification delay",
+      "description": "System-generated email notifications are delayed by several hours after triggering events.",
+      "priority": "Low",
+      "date": "2026-03-02",
+      "creator": "Bob Lee",
+      "status": "open"
+    },
+    {
+      "id": 1005,
+      "title": "File upload error",
+      "description": "Users receive a server error when attempting to upload PDF documents larger than 5MB.",
+      "priority": "High",
+      "date": "2026-03-02",
+      "creator": "Charlie Brown",
+      "status": "open"
+    },
+    {
+      "id": 1006,
+      "title": "Dashboard loading performance issue",
+      "description": "Main dashboard takes more than 20 seconds to load, impacting user productivity.",
+      "priority": "Medium",
+      "date": "2026-03-03",
+      "creator": "Diana Prince",
+      "status": "open"
+    },
+    {
+      "id": 1007,
+      "title": "Incorrect invoice generation",
+      "description": "Generated invoices display incorrect tax calculations for international customers.",
+      "priority": "High",
+      "date": "2026-03-03",
+      "creator": "Ethan Hunt",
+      "status": "open"
+    },
+    {
+      "id": 1008,
+      "title": "Search functionality not returning results",
+      "description": "Search queries yield empty results even when matching records exist in the database.",
+      "priority": "Medium",
+      "date": "2026-03-03",
+      "creator": "Fiona Gallagher",
+      "status": "open"
+    },
+    {
+      "id": 1009,
+      "title": "Mobile layout responsiveness issue",
+      "description": "Application layout breaks on smaller screen devices, causing overlapping text and buttons.",
+      "priority": "Low",
+      "date": "2026-03-04",
+      "creator": "George Martin",
+      "status": "open"
+    },
+    {
+      "id": 1010,
+      "title": "Password reset link expired immediately",
+      "description": "Password reset emails contain links that expire instantly upon first access attempt.",
+          "priority": "High",
+          "date": "2026-03-04",
+          "creator": "Hannah Baker",
+          "status": "open"
+        }
+    ]
