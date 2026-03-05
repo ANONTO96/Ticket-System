@@ -22,6 +22,13 @@ function App() {
   const [resolvedTasks, setResolvedTasks] = useState([]);
 
   const handleAddTask = (ticket) => {
+    // check if same ticket already exists
+  const exists = tasks.some(t => t.id === ticket.id);
+
+  if (exists) {
+    toast.error("This ticket is already in Task Status");
+    return;
+  }
     setTasks([...tasks, ticket]);
     setInProgress(inProgress + 1);
 
@@ -39,7 +46,7 @@ function App() {
   };
   return (
     <>
-      <ToastContainer></ToastContainer>
+      <ToastContainer position="top-center"></ToastContainer>
       <div>
         <Navbar></Navbar>
         <div className="lg:w-10/12 mx-auto">
