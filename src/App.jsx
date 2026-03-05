@@ -1,8 +1,12 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import Footer from "./Components/footer"
 import Navbar from "./Components/navbar"
 import TaskDisplay from "./Components/TaskDisplay"
-import CustomerTickets from "./Components/customerTickets"
-import { Suspense } from "react"
+import CustomerTickets from "./Components/CustomerTickets"
+import { useState, Suspense } from "react"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 const fetchTickets = async () => {
   const res = await fetch('/tickets.json');
@@ -12,21 +16,46 @@ const fetchTickets = async () => {
 const ticketsPromise = fetchTickets();
 
 function App() {
- 
+  const [inProgress, setInProgress] = useState(0);
+  const [resolved, setResolved] = useState(0);
 
+  const [tasks, setTasks] = useState([]);
+  const [resolvedTasks, setResolvedTasks] = useState([]);
+
+  const handleAddTask = (ticket) => {
+    setTasks([...tasks, ticket]);
+    setInProgress(inProgress + 1);
+
+    toast.success("Ticket added to Task Status");
+  };
+
+  const handleComplete = (task) => {
+    setTasks(tasks.filter(t => t.id !== task.id));
+    setResolvedTasks([...resolvedTasks, task]);
+
+    setInProgress(inProgress - 1);
+    setResolved(resolved + 1);
+
+    toast.success("Task completed");
+  };
   return (
     <>
+      <ToastContainer></ToastContainer>
       <div>
         <Navbar></Navbar>
         <div className="lg:w-10/12 mx-auto">
-          <TaskDisplay></TaskDisplay>
+          <TaskDisplay inProgress={inProgress} resolved={resolved}></TaskDisplay>
           <Suspense fallback={<div className="flex w-52 flex-col gap-4">
-  <div className="skeleton h-32 w-full"></div>
-  <div className="skeleton h-4 w-28"></div>
-  <div className="skeleton h-4 w-full"></div>
-  <div className="skeleton h-4 w-full"></div>
-</div>}>
-            <CustomerTickets ticketsPromise={ticketsPromise}></CustomerTickets>
+            <div className="skeleton h-32 w-full"></div>
+            <div className="skeleton h-4 w-28"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+          </div>}>
+            <CustomerTickets ticketsPromise={ticketsPromise}
+              tasks={tasks}
+              resolvedTasks={resolvedTasks}
+              handleAddTask={handleAddTask}
+              handleComplete={handleComplete}></CustomerTickets>
           </Suspense>
         </div>
         <Footer></Footer>

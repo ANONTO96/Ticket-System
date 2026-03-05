@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import bg from '../assets/vector1.png';
 
-const TaskDisplay = () => {
-    const [inProgress, setInProgress] = useState(0);
-    const [resolved, setResolved] = useState(0);
-
+const TaskDisplay = ({ inProgress, resolved }) => {
+  
     return (
         <div className="grid md:grid-cols-2 gap-4 m-10">
   
