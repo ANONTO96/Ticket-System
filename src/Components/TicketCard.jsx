@@ -9,31 +9,31 @@ const statusBadge = {
     pending: "badge-warning"
 };
 
-const TicketCard = ({ ticket }) => {
+const TicketCard = ({ ticket, handleAddTask }) => {
     const { id, title, description, priority, date, status, creator } = ticket;
 
     return (
-        <div className="card bg-base-100 border border-base-200 shadow-sm hover:shadow-md transition-all duration-200">
+        <div onClick={() => handleAddTask(ticket)} className="card bg-base-100 border border-base-200 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer">
             <div className="card-body p-5">
 
                 <div className="flex flex-col justify-between gap-3">
 
                     {/* TOP SECTION */}
-                    <div className="flex justify-between">  
+                    <div className="flex justify-between">
                         <div>
                             <h2 className="text-lg font-semibold text-base-content">
-                            {title}
-                        </h2>
+                                {title}
+                            </h2>
 
-                        <p className="text-sm text-gray-500 mt-1">
-                            {description}
-                        </p>
+                            <p className="text-sm text-gray-500 mt-1">
+                                {description}
+                            </p>
                         </div>
 
                         <div>
                             <span className={`badge badge-soft badge-md capitalize ${statusBadge[status]}`}>
-                            {status}
-                        </span>
+                                {status}
+                            </span>
                         </div>
                     </div>
 

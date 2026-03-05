@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import Footer from "./Components/footer"
 import Navbar from "./Components/navbar"
 import TaskDisplay from "./Components/TaskDisplay"
